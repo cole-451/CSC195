@@ -10,6 +10,7 @@ int main() {
 	float wage;
 	short daysWorked;
 	float hoursWorkedPerDay[7];
+	
 
 	const float TAX = 0.1f; // 10% tax rate
 
