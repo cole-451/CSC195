@@ -49,7 +49,7 @@ void mapUsage() {
 
     for (auto item : itemCount) { // auto helps the computer determine what value type we are looking for since we have two different values.
         cout << item.first << ":" << item.second; // This will now print out the key values that each pair has.
-    }
+    } //Thank you to W3 Schools for teaching me about the auto term. Link: https://www.w3schools.com/cpp/cpp_maps.asp
 
 }
 
