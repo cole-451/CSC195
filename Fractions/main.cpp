@@ -22,10 +22,11 @@ int main()
     std::cout << fraction1 << " + " << fraction2 << " result: " << (fraction1 + fraction2) << std::endl;
     std::cout << fraction1 << " * " << fraction2 << " result: " << (fraction1 * fraction2) << std::endl;
 
-    Fraction<int> fraction3;
-    std::cout << "input fraction (numerator, then denominator): \n";
-   std::cin >> fraction3;
-    std::cout << fraction3 << std::endl;
-    std::cout << fraction3.toFloat() << std::endl;
-    
+    while (true) {
+        Fraction<int> fraction3;
+        std::cout << "input fraction (numerator/denominator): \n";
+        std::cin >> fraction3;
+        std::cout << fraction3 << std::endl;
+        std::cout << fraction3.toFloat() << std::endl;
+    }
 }

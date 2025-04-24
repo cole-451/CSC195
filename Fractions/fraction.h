@@ -20,8 +20,8 @@ namespace mathlib {
 
 
 
-	int getGCD(int a, int b) {
-		int temp = 0;
+	int getGCD(t a, t b) {
+		t temp = 0;
 		while (b != 0) {
 			temp = b;
 			b = a % b;
@@ -30,7 +30,7 @@ namespace mathlib {
 		return temp;
 	}
 	float toFloat() const {
-		return float(this->numerator / this->denominator);
+		return float((this->numerator + 0.0f) / (this->denominator + 0.0f)); // floats show up as integers unless i do some dirty casting
 	}
 	Fraction<t> Simplify() {
 
@@ -94,7 +94,7 @@ namespace mathlib {
 		output << frac.numerator << "/" << frac.denominator;
 		return output;
 	}
-	friend std::istream& operator >>(std::istream& input, Fraction<t> frac) {
+	friend std::istream& operator >>(std::istream& input, Fraction<t>& frac) {
 		t fracNum = frac.numerator;
 		t fracDem = frac.denominator;
 
