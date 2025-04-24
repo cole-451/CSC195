@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <iostream>
+#include <sstream>
 namespace mathlib {
 	template <class t>
 	class Fraction {
@@ -26,6 +28,9 @@ namespace mathlib {
 			a = temp;
 		}
 		return temp;
+	}
+	float toFloat() {
+		return float(this->numerator / this->denominator);
 	}
 	Fraction<t> Simplify() {
 
@@ -66,68 +71,43 @@ namespace mathlib {
 		}
 
 		//Comparison overloads:
-		bool operator ==(Fraction<t> otherFraction) {
-			Simplify(this);
-			Simplify(otherFraction);
-				if (this->numerator == otherFraction->numerator && this->denominator == otherFraction->denominator) {
-					return true;
-				}
+		bool operator ==(const Fraction<t> otherFraction) const {
+			return this->toFloat() == otherFraction.toFloat();
 		}
-		bool operator !=(Fraction<t> otherFraction) {
-				Simplify(this);
-				Simplify(otherFraction);
-					if (this->numerator != otherFraction->numerator && this->denominator != otherFraction->denominator) {
-						return true;
-					}
+		bool operator !=(const Fraction<t> otherFraction) const {
+			return this->toFloat() != otherFraction.toFloat();
 		}
-		bool operator <(Fraction<t> otherFraction) {
-			Simplify(this);
-			Simplify(otherFraction);
-				if (this->numerator < otherFraction->numerator && this->denominator < otherFraction->denominator) {
-					return true;
-				}
+		bool operator <(const Fraction<t> otherFraction) const {
+			return this->toFloat() < otherFraction.toFloat();
 		}
-		bool operator >(Fraction<t> otherFraction) {
-			Simplify(this);
-			Simplify(otherFraction);
-				if (this->numerator > otherFraction->numerator && this->denominator > otherFraction->denominator) {
-					return true;
-				}
+		bool operator >(const Fraction<t> otherFraction) const {
+			return this->toFloat() > otherFraction.toFloat();
 		}
-		bool operator <=(Fraction<t> otherFraction) {
-			Simplify(this);
-			Simplify(otherFraction);
-				if (this->numerator <= otherFraction->numerator && this->denominator <= otherFraction->denominator) {
-					return true;
-				}
+		bool operator <=(const Fraction<t> otherFraction) const {
+			return this->toFloat() <= otherFraction.toFloat();
 		}
-		bool operator >=(Fraction<t> otherFraction) {
-			Simplify(this);
-			Simplify(otherFraction);
-				if (this->numerator >= otherFraction->numerator && this->denominator >= otherFraction->denominator) {
-					return true;
-				}
+		bool operator >=(const Fraction<t> otherFraction) const {
+			return this->toFloat() >= otherFraction.toFloat();
 		}
 	//Streaming overloads
 	friend std::ostream& operator << (std::ostream& output, Fraction<t> frac) {
-		output << frac->numerator << "/" << frac->denominator;
+		output << frac.numerator << "/" << frac.denominator;
 		return output;
 	}
 	friend std::istream& operator >>(std::istream& input, Fraction<t> frac) {
 		t fracNum = frac.numerator;
 		t fracDem = frac.denominator;
-		
 
-		input.getline(fracNum, std::numeric_limits<std::streamsize>::max(), '/');
-		input.getline(fracDem, std::numeric_limits<std::streamsize>::max(), ' ');
+		std::string str;
+		std::getline(input, str, '/');
+		std::istringstream(str) >> frac.numerator;
+		std::getline(input, str, '\n');
+		std::istringstream(str) >> frac.denominator;
+
 		//the .getline commands say that "no overloaded function can convert all argument types"
-		input.ignore( std::numeric_limits<std::streamsize>::max(), '\n');
 		return input;
 
 		
-	}
-	float toFloat() {
-		return float(this->numerator / this->denominator);
 	}
 
 	private:
