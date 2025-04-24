@@ -29,7 +29,7 @@ namespace mathlib {
 		}
 		return temp;
 	}
-	float toFloat() {
+	float toFloat() const {
 		return float(this->numerator / this->denominator);
 	}
 	Fraction<t> Simplify() {
@@ -49,44 +49,44 @@ namespace mathlib {
 
 
 		//Arithmetic overloads: I have no idea how to fix these issues as of now. They cant take params...
-		Fraction<t> operator +(Fraction<t> otherFraction) {
-			t numerator = this->numerator + otherFraction->numerator;
-			t denominator = this->denominator + otherFraction->denominator;
+		Fraction<t> operator +(const Fraction<t>& otherFraction) {
+			t numerator = this->numerator + otherFraction.numerator;
+			t denominator = this->denominator + otherFraction.denominator;
 			return Fraction<t>(numerator, denominator);
 		}
-		Fraction<t> operator - (Fraction<t> otherFraction) {
-			t numerator = this->numerator - otherFraction->numerator;
-			t denominator = this->denominator - otherFraction->denominator;
+		Fraction<t> operator - (const Fraction<t>& otherFraction) {
+			t numerator = this->numerator - otherFraction.numerator;
+			t denominator = this->denominator - otherFraction.denominator;
 			return Fraction<t>(numerator, denominator);
 		}
-		Fraction operator *(Fraction<t> otherFraction) {
-			t numerator = this->numerator * otherFraction->numerator;
-			t denominator = this->denominator * otherFraction->denominator;
+		Fraction operator *(const Fraction<t>& otherFraction) {
+			t numerator = this->numerator * otherFraction.numerator;
+			t denominator = this->denominator * otherFraction.denominator;
 			return Fraction<t>(numerator, denominator);
 		}
-		Fraction operator / (Fraction<t> otherFraction) {
-			t numerator = this->numerator / otherFraction->numerator;
-			t denominator = this->denominator / otherFraction->denominator;
+		Fraction operator / (const Fraction<t>& otherFraction) {
+			t numerator = this->numerator / otherFraction.numerator;
+			t denominator = this->denominator / otherFraction.denominator;
 			return Fraction<t>(numerator, denominator);
 		}
 
 		//Comparison overloads:
-		bool operator ==(const Fraction<t> otherFraction) const {
+		bool operator ==(const Fraction<t>& otherFraction) const {
 			return this->toFloat() == otherFraction.toFloat();
 		}
-		bool operator !=(const Fraction<t> otherFraction) const {
+		bool operator !=(const Fraction<t>& otherFraction) const {
 			return this->toFloat() != otherFraction.toFloat();
 		}
-		bool operator <(const Fraction<t> otherFraction) const {
+		bool operator <(const Fraction<t>& otherFraction) const {
 			return this->toFloat() < otherFraction.toFloat();
 		}
-		bool operator >(const Fraction<t> otherFraction) const {
+		bool operator >(const Fraction<t>& otherFraction) const {
 			return this->toFloat() > otherFraction.toFloat();
 		}
-		bool operator <=(const Fraction<t> otherFraction) const {
+		bool operator <=(const Fraction<t>& otherFraction) const {
 			return this->toFloat() <= otherFraction.toFloat();
 		}
-		bool operator >=(const Fraction<t> otherFraction) const {
+		bool operator >=(const Fraction<t>& otherFraction) const {
 			return this->toFloat() >= otherFraction.toFloat();
 		}
 	//Streaming overloads
