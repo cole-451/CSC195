@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Classes", "Classes\Classes.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpicFail", "EpicFail\EpicFail.vcxproj", "{CD518DEC-8331-4350-BC8B-129340785044}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fractions", "Fractions\Fractions.vcxproj", "{186F3233-858E-4787-96CC-0400E10ED33E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{CD518DEC-8331-4350-BC8B-129340785044}.Release|x64.Build.0 = Release|x64
 		{CD518DEC-8331-4350-BC8B-129340785044}.Release|x86.ActiveCfg = Release|Win32
 		{CD518DEC-8331-4350-BC8B-129340785044}.Release|x86.Build.0 = Release|Win32
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Debug|x64.ActiveCfg = Debug|x64
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Debug|x64.Build.0 = Debug|x64
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Debug|x86.ActiveCfg = Debug|Win32
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Debug|x86.Build.0 = Debug|Win32
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Release|x64.ActiveCfg = Release|x64
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Release|x64.Build.0 = Release|x64
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Release|x86.ActiveCfg = Release|Win32
+		{186F3233-858E-4787-96CC-0400E10ED33E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

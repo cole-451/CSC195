@@ -10,7 +10,7 @@ public:
 		ostream << "Enter name (Until further notice, do NOT put a space!): " << std::endl; // White spaces kill the program. Look into how to fix this.
 		
 		//getline(istream, title); // THIS JUST SKIPS THE INPUT.
-		istream >> title;
+		istream >> title; // stops at whitespace
 		istream.clear();
 		ostream << "What year was it created?" << std::endl;
 		istream.clear();
